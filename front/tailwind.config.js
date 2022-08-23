@@ -1,3 +1,5 @@
+const colors = require('./src/styles/theme/colors')
+
 module.exports = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx}",
@@ -5,6 +7,7 @@ module.exports = {
   ],
   theme: {
     extend: {
+      colors: colors,
       screen: {
         sm: "360px",
         md: "420px",
