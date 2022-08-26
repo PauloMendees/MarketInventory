@@ -1,8 +1,9 @@
 module.exports = {
     primary: {
-        lightBlue: '#1c31a5',
-        intermediaryBlue: '#101f78',
-        darkBlue: '#020f59'
+        purple: '#7F56D9',
+        black: '#101828',
+        gray: '#475467',
+        lightPurple: '#D3D0DF'
     },
     alerts: {
         orange: '#F26E23',
@@ -12,6 +13,6 @@ module.exports = {
         purple: '#8A33CF',
         red: '#E52856',
     },
-    backgroundColor: '#000524',
+    backgroundColor: '#EAECF0',
 
 }
