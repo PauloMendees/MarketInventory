@@ -32,7 +32,7 @@ export function Button(props: ButtonProps) {
     >
       {props.isLoading ? (
         <>
-          <span className="font-normal text-lg text-primary-white leading-6">{`Carregando`}</span>
+          <span className="font-normal text-sm sm:text-xs md:text-xs lg:text-base xl:text-lg 2xl:text-lg text-primary-white leading-6">{`Carregando`}</span>
           <LoadingIcon />
         </>
       ) : (

@@ -30,7 +30,7 @@ export function Input({
     <div className="w-full">
       <When value={label}>
         <label
-          className={`mb-1 text-primary-black text-sm ${
+          className={`mb-1 text-primary-black text-xs sm:text-xs md:text-xs lg:text-xs xl:text-sm 2xl:text-sm ${
             active ? "text-primary-purple" : ""
           } duration-200`}
         >
@@ -51,7 +51,7 @@ export function Input({
           </div>
         </When>
         <input
-          className={`flex-1 bg-transparent outline-none text-primary-black ${className}`}
+          className={`flex-1 bg-transparent outline-none text-primary-black ${className} placeholder:text-sm placeholder:sm:text-sm placeholder:md:text-sm placeholder:lg:text-base placeholder:xl:text-lg placeholder:2xl:text-lg`}
           id={rest.id}
           onBlur={() => {
             setActive(false);
