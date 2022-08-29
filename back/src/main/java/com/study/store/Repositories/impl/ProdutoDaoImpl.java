@@ -1,10 +1,12 @@
 package com.study.store.Repositories.impl;
 
+import java.sql.PreparedStatement;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.support.GeneratedKeyHolder;
 
 import com.study.store.Config.Database;
 import com.study.store.Entities.OrderRows;
@@ -31,18 +33,25 @@ public class ProdutoDaoImpl implements ProdutoDao {
     }
 
     @Override
-    public void insert(Produto produto) {
+    public int insert(Produto produto) {
 
         try {
 
-            this.jdbcTemplate.update(
-                    "INSERT INTO produto (`nome`, `valor_compra`, `quantidade`, `cod`, `loja`) " +
-                            "VALUES (?, ?, ?, ?, ?)",
-                    produto.getNome(),
-                    produto.getValorCompra(),
-                    produto.getQuantidade(),
-                    produto.getCod(),
-                    produto.getLoja().getId());
+            String insertSql = "INSERT INTO produto (`nome`, `valor_compra`, `quantidade`, `cod`, `loja`) " +
+                    "VALUES (?, ?, ?, ?, ?)";
+
+            GeneratedKeyHolder keyHolder = new GeneratedKeyHolder();
+            this.jdbcTemplate.update(connection -> {
+                PreparedStatement ps = connection.prepareStatement(insertSql, new String[] { "ID" });
+                ps.setString(1, produto.getNome());
+                ps.setDouble(2, produto.getValorCompra());
+                ps.setInt(3, produto.getQuantidade());
+                ps.setInt(4, produto.getCod());
+                ps.setInt(5, produto.getLoja().getId());
+                return ps;
+            }, keyHolder);
+
+            return keyHolder.getKey().intValue();
         } catch (EmptyResultDataAccessException e) {
             throw new Error("//:Problem in insert data Produto//:400");
         }
@@ -68,7 +77,7 @@ public class ProdutoDaoImpl implements ProdutoDao {
     }
 
     @Override
-    public int delete(Integer id) {
+    public void delete(Integer id) {
         try {
 
             this.jdbcTemplate.update(
@@ -77,7 +86,6 @@ public class ProdutoDaoImpl implements ProdutoDao {
         } catch (EmptyResultDataAccessException e) {
             throw new Error("//:Problem in delete data Produto//:400");
         }
-        return 0;
     }
 
     @Override
@@ -85,18 +93,18 @@ public class ProdutoDaoImpl implements ProdutoDao {
 
         try {
             return this.jdbcTemplate.query(
-                    "SELECT * FROM usuario"
-                            + "WHERE `nome` = ?"
-                            + "OR `valor_compra` = ?"
-                            + "OR `quantidade` = ?"
-                            + "OR `cod` = ?"
-                            + "OR `loja` = ?",
+                    "SELECT * FROM produto  WHERE "
+                            + "`nome` = ?"
+                            + " OR `valor_compra` = ?"
+                            + " OR `quantidade` = ?"
+                            + " OR `cod` = ?"
+                            + " OR `loja_id` = ?",
                     new ProdutoRowMapper(),
                     filter.getNome(),
                     filter.getValor_compra(),
                     filter.getQuantidade(),
                     filter.getCod(),
-                    filter.getLoja());
+                    filter.getLoja().getId());
         } catch (EmptyResultDataAccessException e) {
             throw new Error("//:Not find Produto//:400");
         }

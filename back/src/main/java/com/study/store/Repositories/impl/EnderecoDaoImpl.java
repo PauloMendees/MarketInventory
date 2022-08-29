@@ -1,10 +1,12 @@
 package com.study.store.Repositories.impl;
 
+import java.sql.PreparedStatement;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.support.GeneratedKeyHolder;
 
 import com.study.store.Config.Database;
 import com.study.store.Entities.Endereco;
@@ -34,16 +36,25 @@ public class EnderecoDaoImpl implements EnderecoDao {
     public Integer insert(Endereco endereco) {
 
         try {
-            this.jdbcTemplate.update(
-                    "INSERT INTO endereco (`rua`, `bairro`, `cidade`, `quadra`, `lote`, `cep`) " +
-                            "VALUES (?, ?, ?, ?, ?, ?)",
-                    endereco.getRua(),
-                    endereco.getBairro(),
-                    endereco.getCidade(),
-                    endereco.getQuadra(),
-                    endereco.getLote(),
-                    endereco.getCep());
-            return 0;
+
+            String insertSql = "INSERT INTO endereco (`rua`, `bairro`, `cidade`, `estado`, `quadra`, `lote`, `cep`) " +
+                    "VALUES (?, ?, ?, ?, ?, ?, ?)";
+
+            GeneratedKeyHolder keyHolder = new GeneratedKeyHolder();
+            this.jdbcTemplate.update(connection -> {
+                PreparedStatement ps = connection.prepareStatement(insertSql, new String[] { "ID" });
+                ps.setString(1, endereco.getRua());
+                ps.setString(2, endereco.getBairro());
+                ps.setString(3, endereco.getCidade());
+                ps.setString(4, endereco.getEstado());
+                ps.setInt(5, endereco.getQuadra());
+                ps.setInt(6, endereco.getLote());
+                ps.setString(7, endereco.getCep());
+                return ps;
+            }, keyHolder);
+
+            return keyHolder.getKey().intValue();
+
         } catch (EmptyResultDataAccessException e) {
             throw new Error("//:Problem in insert data Endereco//:400");
         }
@@ -70,7 +81,7 @@ public class EnderecoDaoImpl implements EnderecoDao {
     }
 
     @Override
-    public int delete(Integer id) {
+    public void delete(Integer id) {
         try {
 
             this.jdbcTemplate.update(
@@ -79,7 +90,6 @@ public class EnderecoDaoImpl implements EnderecoDao {
         } catch (EmptyResultDataAccessException e) {
             throw new Error("//:Problem in delete data Endereco//:400");
         }
-        return 0;
     }
 
     @Override

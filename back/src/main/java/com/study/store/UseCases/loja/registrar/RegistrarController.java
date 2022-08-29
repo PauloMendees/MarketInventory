@@ -1,5 +1,6 @@
 package com.study.store.UseCases.loja.registrar;
 
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -14,7 +15,9 @@ public class RegistrarController {
         this.registrarUseCases = new RegistrarUseCases();
     }
 
-    @PostMapping(value = "/api/loja/registrar")
+    @PostMapping(value = "/api/loja/registrar", consumes = { MediaType.APPLICATION_JSON_VALUE,
+            MediaType.APPLICATION_XML_VALUE }, produces = { MediaType.APPLICATION_JSON_VALUE,
+                    MediaType.APPLICATION_XML_VALUE })
     public ResponseEntity<?> handle(@RequestBody RegistrarDTO data) {
 
         String resp = "A ação não foi executada com sucesso!";
@@ -26,7 +29,7 @@ public class RegistrarController {
 
             code = 200;
         } catch (Exception e) {
-            throw new Error("//:Problem the in service//:500");
+            throw new Error("//: " + e + "//:500");
         }
 
         return ResponseEntity.status(code).body(resp);

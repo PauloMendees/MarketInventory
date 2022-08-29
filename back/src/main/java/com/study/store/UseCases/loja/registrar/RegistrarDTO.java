@@ -7,6 +7,7 @@ public class RegistrarDTO {
     public String rua;
     public String bairro;
     public String cidade;
+    public String estado;
     public Integer quadra;
     public Integer lote;
     public String cep;
@@ -73,6 +74,14 @@ public class RegistrarDTO {
 
     public void setCep(String cep) {
         this.cep = cep;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
     }
 
 }

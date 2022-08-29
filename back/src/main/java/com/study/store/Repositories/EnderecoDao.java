@@ -14,7 +14,7 @@ public interface EnderecoDao {
 
     int update(Endereco endereco);
 
-    int delete(Integer id);
+    void delete(Integer id);
 
     List<Endereco> search(FilterEndereco filter, OrderRows orderRows);
 }

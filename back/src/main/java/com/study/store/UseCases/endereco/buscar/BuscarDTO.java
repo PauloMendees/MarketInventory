@@ -4,7 +4,4 @@ public class BuscarDTO {
 
     public Integer id;
 
-    BuscarDTO(BuscarDTO props) {
-        id = props.id;
-    }
 }

@@ -1,13 +1,22 @@
-package com.study.store.Entities;
+package com.study.store.UseCases.loja.mostrarEstoque;
 
-public class Produto {
+import com.study.store.Entities.Produto;
+
+public class ProdutoItem {
 
     private Integer id;
     public String nome;
     public Double valor_compra;
     public Integer quantidade;
     public Integer cod;
-    public Loja loja;
+
+    ProdutoItem(Produto props) {
+        this.id = props.getId();
+        this.nome = props.getNome();
+        this.valor_compra = props.getValorCompra();
+        this.quantidade = props.getQuantidade();
+        this.cod = props.getCod();
+    }
 
     public Integer getId() {
         return id;
@@ -47,14 +56,6 @@ public class Produto {
 
     public void setCod(Integer cod) {
         this.cod = cod;
-    }
-
-    public Loja getLoja() {
-        return loja;
-    }
-
-    public void setLoja(Loja loja) {
-        this.loja = loja;
     }
 
 }

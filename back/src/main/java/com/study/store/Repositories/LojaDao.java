@@ -10,11 +10,13 @@ public interface LojaDao {
 
     Loja findById(Integer id);
 
-    void insert(Loja loja);
+    Integer insert(Loja loja);
 
     int update(Loja loja);
 
-    int delete(Integer id);
+    void delete(Integer id);
 
     List<Loja> search(FilterLoja filter, OrderRows orderRows);
+
+    List<Loja> findAll();
 }

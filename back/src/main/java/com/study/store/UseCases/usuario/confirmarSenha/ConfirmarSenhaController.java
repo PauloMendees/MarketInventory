@@ -2,6 +2,7 @@ package com.study.store.UseCases.usuario.confirmarSenha;
 
 import java.util.List;
 
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,7 +19,9 @@ public class ConfirmarSenhaController {
         this.buscarUseCases = new ConfirmarSenhaUseCases();
     }
 
-    @PostMapping(value = "/api/usuario/confirmarSenha")
+    @PostMapping(value = "/api/usuario/confirmarSenha", consumes = { MediaType.APPLICATION_JSON_VALUE,
+            MediaType.APPLICATION_XML_VALUE }, produces = { MediaType.APPLICATION_JSON_VALUE,
+                    MediaType.APPLICATION_XML_VALUE })
     public ResponseEntity<?> handle(@RequestBody ConfirmarSenhaDTO data) {
 
         List<Usuario> usuario;

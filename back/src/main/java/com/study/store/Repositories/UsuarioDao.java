@@ -10,11 +10,11 @@ public interface UsuarioDao {
 
     Usuario findById(Integer id);
 
-    void insert(Usuario usuario);
+    int insert(Usuario usuario);
 
     int update(Usuario usuario);
 
-    int delete(Integer id);
+    void delete(Integer id);
 
     List<Usuario> search(FilterUsuario filter, OrderRows orderRows);
 }

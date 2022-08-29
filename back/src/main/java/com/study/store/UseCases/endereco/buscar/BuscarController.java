@@ -1,5 +1,6 @@
 package com.study.store.UseCases.endereco.buscar;
 
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -16,7 +17,9 @@ public class BuscarController {
         this.buscarUseCases = new BuscarUseCases();
     }
 
-    @GetMapping(value = "/api/endereco/buscar")
+    @GetMapping(value = "/api/endereco/buscar", consumes = { MediaType.APPLICATION_JSON_VALUE,
+            MediaType.APPLICATION_XML_VALUE }, produces = { MediaType.APPLICATION_JSON_VALUE,
+                    MediaType.APPLICATION_XML_VALUE })
     public ResponseEntity<?> handle(@RequestBody BuscarDTO data) {
 
         Endereco endereco = new Endereco();

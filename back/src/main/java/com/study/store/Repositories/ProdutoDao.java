@@ -10,11 +10,11 @@ public interface ProdutoDao {
 
     Produto findById(Integer id);
 
-    void insert(Produto produto);
+    int insert(Produto produto);
 
     int update(Produto produto);
 
-    int delete(Integer id);
+    void delete(Integer id);
 
     List<Produto> search(FilterProduto filter, OrderRows orderRows);
 }

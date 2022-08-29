@@ -20,12 +20,15 @@ public class RegistrarUseCases {
         EnderecoDaoImpl enderecoDaoImpl = new EnderecoDaoImpl();
         endereco.setLote(props.lote);
         endereco.setBairro(props.bairro);
+        endereco.setEstado(props.estado);
         endereco.setCidade(props.cidade);
         endereco.setQuadra(props.quadra);
         endereco.setRua(props.rua);
         endereco.setCep(props.cep);
 
         endereco.setId(enderecoDaoImpl.insert(endereco));
+
+        System.out.print(endereco.getId());
 
         loja.setEndereco(endereco);
 

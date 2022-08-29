@@ -13,7 +13,7 @@ public class LojaRowMapper implements RowMapper<Loja> {
     public Loja mapRow(ResultSet rs, int romNum) throws SQLException {
 
         Loja loja = new Loja();
-
+        loja.setId(rs.getInt("id"));
         loja.setNome(rs.getString("nome"));
         loja.setCnpj(rs.getString("cnpj"));
 

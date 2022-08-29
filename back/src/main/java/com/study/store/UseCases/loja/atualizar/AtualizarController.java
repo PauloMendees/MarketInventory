@@ -1,5 +1,6 @@
 package com.study.store.UseCases.loja.atualizar;
 
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -14,7 +15,9 @@ public class AtualizarController {
         this.atualizarUseCases = new AtualizarUseCases();
     }
 
-    @PostMapping(value = "/api/loja/atualizar")
+    @PostMapping(value = "/api/loja/atualizar", consumes = { MediaType.APPLICATION_JSON_VALUE,
+            MediaType.APPLICATION_XML_VALUE }, produces = { MediaType.APPLICATION_JSON_VALUE,
+                    MediaType.APPLICATION_XML_VALUE })
     public ResponseEntity<?> handle(@RequestBody AtualizarDTO data) {
 
         String resp = "A ação não foi concluída com sucesso!";

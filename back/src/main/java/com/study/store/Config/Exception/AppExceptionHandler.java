@@ -21,6 +21,7 @@ public class AppExceptionHandler extends ResponseEntityExceptionHandler {
 
         error = errorDescription.split("//:");
 
+        System.out.print(error);
         ErrorMessage errorMessage = new ErrorMessage(new Date(), error[1]);
         if (errorMessage.getError() == null)
             errorMessage = new ErrorMessage(new Date(), e.getLocalizedMessage());

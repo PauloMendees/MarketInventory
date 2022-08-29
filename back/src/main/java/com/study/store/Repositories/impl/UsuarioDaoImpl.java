@@ -1,10 +1,12 @@
 package com.study.store.Repositories.impl;
 
+import java.sql.PreparedStatement;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.stereotype.Repository;
 
 import com.study.store.Config.Database;
@@ -33,15 +35,21 @@ public class UsuarioDaoImpl implements UsuarioDao {
     }
 
     @Override
-    public void insert(Usuario usuario) {
+    public int insert(Usuario usuario) {
 
         try {
+            String insertSql = "INSERT INTO usuario (`apelido`, `senha`) " +
+                    "VALUES (?, ?)";
 
-            this.jdbcTemplate.update(
-                    "INSERT INTO usuario (`apelido`, `senha`) " +
-                            "VALUES (?, ?)",
-                    usuario.getApelido(),
-                    usuario.getSenha());
+            GeneratedKeyHolder keyHolder = new GeneratedKeyHolder();
+            this.jdbcTemplate.update(connection -> {
+                PreparedStatement ps = connection.prepareStatement(insertSql, new String[] { "ID" });
+                ps.setString(1, usuario.getApelido());
+                ps.setString(2, usuario.getSenha());
+                return ps;
+            }, keyHolder);
+
+            return keyHolder.getKey().intValue();
         } catch (EmptyResultDataAccessException e) {
             throw new Error("//:Problem in insert data Usuarios//:400");
         }
@@ -64,7 +72,7 @@ public class UsuarioDaoImpl implements UsuarioDao {
     }
 
     @Override
-    public int delete(Integer id) {
+    public void delete(Integer id) {
         try {
 
             this.jdbcTemplate.update(
@@ -73,7 +81,6 @@ public class UsuarioDaoImpl implements UsuarioDao {
         } catch (EmptyResultDataAccessException e) {
             throw new Error("//:Problem in delete data Usuarios//:400");
         }
-        return 0;
     }
 
     @Override

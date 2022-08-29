@@ -9,15 +9,4 @@ public class AtualizarDTO {
     public Integer lote;
     public String cep;
 
-    AtualizarDTO(AtualizarDTO props) {
-
-        rua = props.rua;
-        bairro = props.bairro;
-        cidade = props.cidade;
-        quadra = props.quadra;
-        lote = props.lote;
-        cep = props.cep;
-
-    }
-
 }
