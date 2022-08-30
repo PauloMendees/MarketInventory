@@ -38,7 +38,7 @@ export function Input({
         </label>
       </When>
       <div
-        className={`w-full flex items-center justify-between border-primary-black rounded-md border-[1px] px-3 py-[6px] gap-3 ${
+        className={`w-full flex items-center justify-between border-primary-black rounded-lg border-[1px] px-3 py-[6px] gap-3 ${
           active ? "border-primary-purple bg-primary-purple bg-opacity-5" : ""
         } duration-200`}
       >

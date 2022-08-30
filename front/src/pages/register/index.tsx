@@ -3,6 +3,7 @@ import { Copy } from "../../components/registerPage/Copy";
 import { Form } from "../../components/registerPage/Form";
 import { Title } from "../../components/registerPage/Title";
 import { PageContainer } from "../../components/shared/PageContainer";
+import LocalGroceryStoreIcon from '@mui/icons-material/LocalGroceryStore';
 
 const Home: NextPage = () => {
   return (
@@ -16,7 +17,7 @@ const Home: NextPage = () => {
               <Copy />
             </div>
             <div className="sm:hidden md:hidden lg:hidden: xl:flex 2xl:flex hidden flex-1 h-[800px] w-full bg-backgroundColor rounded-r-xl  items-center justify-center">
-              <div className="w-[250px] h-[250px] rounded-full bg-primary-purple" />
+              <LocalGroceryStoreIcon />
             </div>
           </div>
         </div>
