@@ -11,6 +11,7 @@ type ButtonProps = {
   isOutlined?: boolean;
   isLoading?: boolean;
   children?: ReactNode;
+  id?: string
 };
 
 export function Button(props: ButtonProps) {
@@ -18,6 +19,7 @@ export function Button(props: ButtonProps) {
 
   return (
     <button
+      id={props.id}
       disabled={props.isDisabled || props.isLoading}
       onClick={props.onClick}
       data-testid={props.dataTestId}
