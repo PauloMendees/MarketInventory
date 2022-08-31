@@ -17,7 +17,12 @@ const Home: NextPage = () => {
               <Copy />
             </div>
             <div className="sm:hidden md:hidden lg:hidden: xl:flex 2xl:flex hidden flex-1 h-[800px] w-full bg-backgroundColor rounded-r-xl  items-center justify-center">
-              <LocalGroceryStoreIcon />
+            <LocalGroceryStoreIcon
+                sx={{fontSize: 200}}
+                fontSize={"large"}
+                scale={2}
+                color='primary'
+              />
             </div>
           </div>
         </div>
