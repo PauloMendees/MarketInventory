@@ -16,8 +16,8 @@ export default function useLoginForm(){
 
     const router = useRouter()
 
-    async function signin(e: FormEvent){
-        e.preventDefault()
+    async function signin(e?: FormEvent){
+        if(e) e.preventDefault()
         const apelidoInput = document.getElementById('usernameInput') as HTMLInputElement
         const senhaInput = document.getElementById('senhaInput') as HTMLInputElement
 
