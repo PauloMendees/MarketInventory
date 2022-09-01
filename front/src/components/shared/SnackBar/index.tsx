@@ -23,7 +23,7 @@ export const SnackbarMessage = ({deleteSnackbar, snackbar}: Props) => {
         >
             <div />
             <div className="flex flex-1 mr-5">
-                <H5 className={'2xl:leading-5 text-center w-full'}>{snackbar.message}</H5>
+                <H5 className={'2xl:leading-5 text-center w-full text-white'}>{snackbar.message}</H5>
             </div>
             <span
                 data-testid={'closeIcon'}

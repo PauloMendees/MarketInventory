@@ -12,10 +12,10 @@ public class ConfirmarSenhaUseCases {
     public List<Usuario> execute(ConfirmarSenhaDTO props) {
 
         UsuarioDaoImpl usuarioDaoImpl = new UsuarioDaoImpl();
-
         List<Usuario> usuario;
         FilterUsuario filterUsuario = new FilterUsuario();
         filterUsuario.setSenha(props.senha);
+        filterUsuario.setApelido(props.apelido);
         OrderRows orderRows = new OrderRows();
         orderRows.setColuna("apelidos");
         orderRows.setOrdem("ASC");

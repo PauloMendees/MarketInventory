@@ -1,7 +1,7 @@
 import { FormEvent } from "react"
 import useRegisterUser from "../../../../hooks/user/useRegisterUser"
 import { useSnackbarContext } from "../../../../hooks/useSnackbarContext";
-import { RegisterUserPayload } from "../../../../service/userService/types"
+import { UserPayload } from "../../../../service/userService/types"
 
 export default function useRegisterForm(){
     const {mutateAsync, isLoading, reset} = useRegisterUser()
@@ -15,7 +15,7 @@ export default function useRegisterForm(){
         const userName = userNameInput.value
         const password = passwordInput.value
 
-        const payload: RegisterUserPayload = {
+        const payload: UserPayload = {
             apelido: userName,
             senha: password
         }

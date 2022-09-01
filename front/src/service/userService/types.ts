@@ -1,4 +1,4 @@
-export type RegisterUserPayload = {
+export type UserPayload = {
     apelido: string,
     senha: string
 }

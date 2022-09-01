@@ -4,6 +4,7 @@ import { Form } from "../components/loginPage/Form";
 import { Title } from "../components/loginPage/Title";
 import { PageContainer } from "../components/shared/PageContainer";
 import LocalGroceryStoreIcon from "@mui/icons-material/LocalGroceryStore";
+import { parseCookies } from "nookies";
 
 const Home: NextPage = () => {
   return (
@@ -32,3 +33,20 @@ const Home: NextPage = () => {
 };
 
 export default Home;
+
+export const getServerSideProps = async (ctx: any) => {
+  const { 'loggedUser': user } = parseCookies(ctx)
+
+  if(user){
+      return {
+          redirect: {
+              destination: '/inventory',
+              permanent: false
+          }
+      }
+  }
+
+  return {
+      props: {}
+  }
+}

@@ -33,7 +33,7 @@ public class ConfirmarSenhaController {
 
             code = 200;
         } catch (Exception e) {
-            throw new Error("//:Problem the in service//:500");
+            throw new Error("//:Problem the in service: " + e + "//:500");
         }
 
         return ResponseEntity.status(code).body(usuario);

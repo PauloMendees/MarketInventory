@@ -1,3 +1,4 @@
 export const userRoutes = {
-    register: '/usuario/registrar'
+    register: '/usuario/registrar',
+    login: '/usuario/confirmarSenha'
 }

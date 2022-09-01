@@ -85,13 +85,12 @@ public class UsuarioDaoImpl implements UsuarioDao {
 
     @Override
     public List<Usuario> search(FilterUsuario filter, OrderRows orderRows) {
-
         try {
 
             return this.jdbcTemplate.query(
-                    "SELECT * FROM usuario"
-                            + "WHERE apelido = ?"
-                            + "OR senha = ?",
+                    "SELECT * FROM usuario WHERE "
+                            + "`apelido` = ?"
+                            + " OR `senha` = ?",
                     new UsuarioRowMapper(),
                     filter.getApelido(),
                     filter.getSenha());
