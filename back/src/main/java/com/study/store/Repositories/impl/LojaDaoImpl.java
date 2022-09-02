@@ -1,7 +1,6 @@
 package com.study.store.Repositories.impl;
 
 import java.sql.PreparedStatement;
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -62,7 +61,7 @@ public class LojaDaoImpl implements LojaDao {
         try {
 
             this.jdbcTemplate.update(
-                    "INSERT INTO loja (`nome`, `cnpj`, `endereco`) " +
+                    "INSERT INTO loja (`nome`, `cnpj`, `endereco_id`) " +
                             "VALUES (?, ?, ?)",
                     loja.getNome(),
                     loja.getCnpj(),

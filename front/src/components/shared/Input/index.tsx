@@ -27,7 +27,7 @@ export function Input({
   const [active, setActive] = React.useState<boolean>(false);
 
   return (
-    <div className="w-full">
+    <div className={`w-full ${className}`}>
       <When value={label}>
         <label
           className={`mb-1 text-primary-black text-xs sm:text-xs md:text-xs lg:text-xs xl:text-sm 2xl:text-sm ${
@@ -51,7 +51,7 @@ export function Input({
           </div>
         </When>
         <input
-          className={`flex-1 bg-transparent outline-none text-primary-black ${className} placeholder:text-sm placeholder:sm:text-sm placeholder:md:text-sm placeholder:lg:text-base placeholder:xl:text-lg placeholder:2xl:text-lg`}
+          className={`flex-1 bg-transparent outline-none text-primary-black placeholder:text-sm placeholder:sm:text-sm placeholder:md:text-sm placeholder:lg:text-base placeholder:xl:text-lg placeholder:2xl:text-lg`}
           id={rest.id}
           onBlur={() => {
             setActive(false);

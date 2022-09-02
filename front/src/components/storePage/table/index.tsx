@@ -1,10 +1,10 @@
 import { useEffect } from "react";
-import useListProdutos from "../../../hooks/produto/useListProdutos";
+import useListLojas from "../../../hooks/loja/useListLojas";
 import { TableCell } from "./cell";
 import { TableHead } from "./head";
 
 export function Table() {
-  const {data} = useListProdutos();
+  const {data} = useListLojas()
 
   useEffect(() => {
     console.log(data)

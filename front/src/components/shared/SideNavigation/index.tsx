@@ -47,16 +47,6 @@ export function SideNavigation({ active }: Props) {
             }
           />
         </button>
-        <button className="p-4 rounded-xl hover:bg-primary-lightPurple duration-200 cursor-pointer">
-          <UserAddIcon
-            width="25"
-            height="25"
-            hoverAnimate
-            color={
-              active === "user" ? colors.primary.purple : colors.primary.gray
-            }
-          />
-        </button>
       </div>
       <div className="h-full pl-24" />
     </>

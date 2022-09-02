@@ -17,4 +17,6 @@ public interface ProdutoDao {
     void delete(Integer id);
 
     List<Produto> search(FilterProduto filter, OrderRows orderRows);
+
+    List<Produto> findAll();
 }

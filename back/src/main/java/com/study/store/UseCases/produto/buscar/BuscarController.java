@@ -1,5 +1,7 @@
 package com.study.store.UseCases.produto.buscar;
 
+import java.util.List;
+
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,7 +24,7 @@ public class BuscarController {
                     MediaType.APPLICATION_XML_VALUE })
     public ResponseEntity<?> handle(@RequestBody BuscarDTO data) {
 
-        Produto produto = new Produto();
+        List<Produto> produto;
         Integer code = 200;
 
         try {

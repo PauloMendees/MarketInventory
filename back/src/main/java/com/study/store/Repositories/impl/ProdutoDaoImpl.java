@@ -110,4 +110,15 @@ public class ProdutoDaoImpl implements ProdutoDao {
         }
     }
 
+    @Override
+    public List<Produto> findAll() {
+
+        try {
+            return this.jdbcTemplate.query(
+                    "SELECT * FROM produto",
+                    new ProdutoRowMapper());
+        } catch (EmptyResultDataAccessException e) {
+            throw new Error("//:Not find Loja//:400");
+        }
+    }
 }

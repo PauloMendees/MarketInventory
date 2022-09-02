@@ -10,5 +10,4 @@ public class StoreApplication {
 		SpringApplication.run(StoreApplication.class, args);
 		System.out.println("\n\n >>>>>>>>>> CONECTADO <<<<<<<<<");
 	}
-
 }

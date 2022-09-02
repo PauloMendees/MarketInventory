@@ -17,7 +17,7 @@ export const SnackbarMessage = ({deleteSnackbar, snackbar}: Props) => {
             className={`${snackbar.type === 'error' ? 'bg-alerts-red' : 'bg-alerts-green'} 
             transition-opacity duration-200 animate-fadeInAnimation ${show ? 'opacity-1' : 'opacity-0'}
             flex justify-between items-center absolute pointer-events-auto overflow-hidden 
-            px-5 py-3 w-[400px] rounded-xl text-primary-white bg-no-repeat z-[1000]`}
+            px-5 py-3 w-[400px] rounded-xl text-primary-white bg-no-repeat z-50`}
             style={{boxShadow: '0 0 10px #00000084'}}
             data-testid={'snackbarMessage-' + snackbar.type}
         >
