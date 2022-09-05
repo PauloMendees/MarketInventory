@@ -63,7 +63,7 @@ public class ProdutoDaoImpl implements ProdutoDao {
         try {
 
             this.jdbcTemplate.update(
-                    "INSERT INTO usuario (`nome`, `valor_compra`, `quantidade`, `cod`, `loja`) " +
+                    "INSERT INTO produto (`nome`, `valor_compra`, `quantidade`, `cod`, `loja_id`) " +
                             "VALUES (?, ?, ?, ?, ?)",
                     produto.getNome(),
                     produto.getValorCompra(),

@@ -4,20 +4,17 @@ import { TableCell } from "./cell";
 import { TableHead } from "./head";
 
 export function Table() {
-  const {data} = useListProdutos();
-
-  useEffect(() => {
-    console.log(data)
-  }, [data])
+  const {data: apiResponse} = useListProdutos();
 
   return (
     <table className="w-full mt-8">
       <TableHead />
       <tbody className="flex flex-col gap-3 mt-2">
-        <TableCell />
-        <TableCell />
-        <TableCell />
-        <TableCell />
+        {apiResponse?.data.map((item, index) => {
+          return (
+            <TableCell data={item} key={index} />
+          )
+        })}
       </tbody>
     </table>
   );

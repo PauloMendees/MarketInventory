@@ -19,7 +19,7 @@ public class BuscarController {
     }
 
     @CrossOrigin
-    @GetMapping(value = "/api/produto/buscar/")
+    @GetMapping(value = "/api/produto/buscar")
     public ResponseEntity<?> handle() {
 
         List<Produto> produto;

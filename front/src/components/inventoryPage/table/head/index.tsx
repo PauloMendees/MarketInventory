@@ -5,10 +5,10 @@ export function TableHead() {
         <th className="md:text-base xl:text-lg 2xl:text-lg font-semibold text-gray-800 flex justify-start w-[8%] min-w-[5rem]">
           {`Cod`}
         </th>
-        <th className="md:text-base xl:text-lg 2xl:text-lg font-semibold text-gray-800 flex justify-start w-[15%] min-w-[5rem]">
+        <th className="md:text-base xl:text-lg 2xl:text-lg font-semibold text-gray-800 flex justify-start w-[20%] min-w-[5rem]">
           {`Nome`}
         </th>
-        <th className="md:text-base xl:text-lg 2xl:text-lg font-semibold text-gray-800 flex justify-start w-[20%] min-w-[5rem]">
+        <th className="md:text-base xl:text-lg 2xl:text-lg font-semibold text-gray-800 flex justify-start w-[25%] min-w-[5rem]">
           {`Valor de compra`}
         </th>
         <th className="md:text-base xl:text-lg 2xl:text-lg font-semibold text-gray-800 flex justify-start w-[20%] min-w-[5rem]">

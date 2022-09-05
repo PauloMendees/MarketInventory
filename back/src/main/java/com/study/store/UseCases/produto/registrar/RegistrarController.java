@@ -29,7 +29,7 @@ public class RegistrarController {
 
             code = 200;
         } catch (Exception e) {
-            throw new Error("//:Problem the in service//:500");
+            throw new Error("//:Problem the in service//:500" + e);
         }
 
         return ResponseEntity.status(code).body(resp);

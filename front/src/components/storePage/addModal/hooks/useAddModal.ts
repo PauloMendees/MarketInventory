@@ -38,7 +38,7 @@ export default function useAddModal(){
             },
             onError: (err) => {
                 //@ts-ignore
-                dispatchSnackbar({type: "success", message: err.response.data.message})
+                dispatchSnackbar({type: "error", message: err.response.data.error})
             }
         });
     }

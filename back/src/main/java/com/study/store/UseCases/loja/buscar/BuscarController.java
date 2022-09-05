@@ -19,7 +19,7 @@ public class BuscarController {
 
     @CrossOrigin
     @GetMapping(value = "/api/loja/buscar")
-    public ResponseEntity<?> handle(@RequestBody BuscarDTO data) {
+    public ResponseEntity<?> handle() {
 
         List<Loja> loja;
         Integer code = 200;

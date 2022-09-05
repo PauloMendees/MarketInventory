@@ -1,6 +1,6 @@
 import { lojasRoutes } from "../../config/apiRoutes/lojas"
 import { api } from "../handleApi"
-import { LojaPayload } from "./types"
+import { Empresa, LojaPayload } from "./types"
 
 export default function lojasService(){
     const {register: registerRoute, list: listRoute, delete: delRoute} = lojasRoutes
@@ -10,7 +10,7 @@ export default function lojasService(){
     }
 
     async function list(){
-        return await api.get(listRoute).then((res) => res)
+        return await api.get<Empresa[]>(listRoute).then((res) => res)
     }
 
     async function register(payload: LojaPayload){
