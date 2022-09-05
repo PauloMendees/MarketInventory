@@ -6,7 +6,7 @@ export default function produtoService(){
     const {del: delRoute, list: listRoute, register: registerRoute} = produtoRoutes
 
     async function list(){
-        return await api.get(listRoute).then((res) => res)
+        return await api.get(listRoute+"/1").then((res) => res)
     }
 
     async function del(id: number){

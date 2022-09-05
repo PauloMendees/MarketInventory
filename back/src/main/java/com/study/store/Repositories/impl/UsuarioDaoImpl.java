@@ -99,4 +99,15 @@ public class UsuarioDaoImpl implements UsuarioDao {
         }
     }
 
+    @Override
+    public List<Usuario> findAll() {
+
+        try {
+            return this.jdbcTemplate.query(
+                    "SELECT * FROM usuario",
+                    new UsuarioRowMapper());
+        } catch (EmptyResultDataAccessException e) {
+            throw new Error("//:Not find usuario//:400");
+        }
+    }
 }

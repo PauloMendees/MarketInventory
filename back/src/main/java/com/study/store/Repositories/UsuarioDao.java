@@ -17,4 +17,6 @@ public interface UsuarioDao {
     void delete(Integer id);
 
     List<Usuario> search(FilterUsuario filter, OrderRows orderRows);
+
+    List<Usuario> findAll();
 }

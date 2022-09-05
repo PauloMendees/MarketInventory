@@ -1,6 +1,5 @@
 package com.study.store.UseCases.loja.buscar;
 
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,10 +17,8 @@ public class BuscarController {
         this.buscarUseCases = new BuscarUseCases();
     }
 
-    @CrossOrigin(origins = "http://localhost:3000")
-    @GetMapping(value = "/api/loja/buscar", consumes = { MediaType.APPLICATION_JSON_VALUE,
-            MediaType.APPLICATION_XML_VALUE }, produces = { MediaType.APPLICATION_JSON_VALUE,
-                    MediaType.APPLICATION_XML_VALUE })
+    @CrossOrigin
+    @GetMapping(value = "/api/loja/buscar")
     public ResponseEntity<?> handle(@RequestBody BuscarDTO data) {
 
         List<Loja> loja;

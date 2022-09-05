@@ -7,7 +7,7 @@ import com.study.store.Repositories.impl.ProdutoDaoImpl;
 
 public class BuscarUseCases {
 
-    public List<Produto> execute(BuscarDTO props) {
+    public List<Produto> execute() {
 
         ProdutoDaoImpl produtoDaoImpl = new ProdutoDaoImpl();
 
