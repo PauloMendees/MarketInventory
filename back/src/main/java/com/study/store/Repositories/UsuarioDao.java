@@ -18,5 +18,7 @@ public interface UsuarioDao {
 
     List<Usuario> search(FilterUsuario filter, OrderRows orderRows);
 
+    List<Usuario> findByUserCredentials(FilterUsuario filter, OrderRows orderRows);
+
     List<Usuario> findAll();
 }

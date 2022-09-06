@@ -8,5 +8,6 @@ public class AtualizarDTO {
     public Integer quadra;
     public Integer lote;
     public String cep;
+    public Integer id;
 
 }

@@ -8,6 +8,9 @@ public class DeletarUseCases {
 
         LojaDaoImpl lojaDaoImpl = new LojaDaoImpl();
 
+        if (!(props.id instanceof Integer) || props.id == null || props.id == 0)
+        throw new Error("//:Loja Inválido//:401");
+
         lojaDaoImpl.delete(props.id);
 
         return "Loja deletada com sucesso";

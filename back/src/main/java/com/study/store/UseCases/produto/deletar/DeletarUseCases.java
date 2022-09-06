@@ -8,6 +8,9 @@ public class DeletarUseCases {
 
         ProdutoDaoImpl produtoDaoImpl = new ProdutoDaoImpl();
 
+        if (!(props.id instanceof Integer) || props.id == null || props.id == 0)
+        throw new Error("//:Produto Inválido//:401");
+
         produtoDaoImpl.delete(props.id);
 
         return "Usuário deletado com sucesso";

@@ -20,7 +20,6 @@ public class ConfirmarSenhaController {
         this.buscarUseCases = new ConfirmarSenhaUseCases();
     }
 
-    @CrossOrigin
     @PostMapping(value = "/api/usuario/confirmarSenha", consumes = { MediaType.APPLICATION_JSON_VALUE,
             MediaType.APPLICATION_XML_VALUE }, produces = { MediaType.APPLICATION_JSON_VALUE,
                     MediaType.APPLICATION_XML_VALUE })

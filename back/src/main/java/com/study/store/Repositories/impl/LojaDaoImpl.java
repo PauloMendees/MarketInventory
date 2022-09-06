@@ -61,11 +61,12 @@ public class LojaDaoImpl implements LojaDao {
         try {
 
             this.jdbcTemplate.update(
-                    "INSERT INTO loja (`nome`, `cnpj`, `endereco_id`) " +
-                            "VALUES (?, ?, ?)",
+                    "UPDATE loja SET `nome` = ?, `cnpj` = ?, `endereco_id` = ?" +
+                            "WHERE id = ?",
                     loja.getNome(),
                     loja.getCnpj(),
-                    loja.getEndereco().getId());
+                    loja.getEndereco().getId(), 
+                    loja.getId());
         } catch (EmptyResultDataAccessException e) {
             throw new Error("//:Problem in update data Loja//:400");
         }

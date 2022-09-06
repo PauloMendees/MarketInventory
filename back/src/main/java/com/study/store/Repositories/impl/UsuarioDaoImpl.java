@@ -61,10 +61,11 @@ public class UsuarioDaoImpl implements UsuarioDao {
         try {
 
             this.jdbcTemplate.update(
-                    "INSERT INTO usuario (`apelido`, `senha`) " +
-                            "VALUES (?, ?)",
+                    "UPDATE usuario SET `apelido` = ? , `senha` = ? " +
+                            " WHERE id = ?",
                     usuario.getApelido(),
-                    usuario.getSenha());
+                    usuario.getSenha(),
+                    usuario.getId());
         } catch (EmptyResultDataAccessException e) {
             throw new Error("//:Problem in update data Usuarios//:400");
         }
@@ -91,6 +92,22 @@ public class UsuarioDaoImpl implements UsuarioDao {
                     "SELECT * FROM usuario WHERE "
                             + "`apelido` = ?"
                             + " OR `senha` = ?",
+                    new UsuarioRowMapper(),
+                    filter.getApelido(),
+                    filter.getSenha());
+        } catch (EmptyResultDataAccessException e) {
+            throw new Error("//:Not find usuario//:400");
+        }
+    }
+
+    @Override
+    public List<Usuario> findByUserCredentials(FilterUsuario filter, OrderRows orderRows) {
+        try {
+
+            return this.jdbcTemplate.query(
+                    "SELECT * FROM usuario WHERE "
+                            + "`apelido` = ?"
+                            + " AND `senha` = ?",
                     new UsuarioRowMapper(),
                     filter.getApelido(),
                     filter.getSenha());

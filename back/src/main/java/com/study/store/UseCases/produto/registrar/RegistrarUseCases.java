@@ -11,6 +11,17 @@ public class RegistrarUseCases {
 
         ProdutoDaoImpl produtoDaoImpl = new ProdutoDaoImpl();
 
+        if (!(props.nome instanceof String) || props.nome == null || props.nome == "")
+            throw new Error("//:Informações inválidas//:401");
+        if (!(props.cod instanceof Integer) || props.cod == null || props.cod == 0)
+            throw new Error("//:Informações inválidas//:401");
+        if (!(props.quantidade instanceof Integer) || props.quantidade == null || props.quantidade == 0)
+            throw new Error("//:Informações inválidas//:401");
+        if (!(props.valor_compra instanceof Double) || props.valor_compra == null || props.valor_compra == 0.0)
+            throw new Error("//:Informações inválidas//:401");
+        if (!(props.loja instanceof Integer) || props.loja == null || props.loja == 0)
+            throw new Error("//:Informações inválidas//:401");
+
         Produto produto = new Produto();
         produto.setNome(props.nome);
         produto.setCod(props.cod);

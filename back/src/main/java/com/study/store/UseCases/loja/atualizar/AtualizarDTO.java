@@ -9,5 +9,7 @@ public class AtualizarDTO {
     public String cidade;
     public Integer quadra;
     public Integer lote;
+    public String estado;
     public String cep;
+    public Integer id;
 }

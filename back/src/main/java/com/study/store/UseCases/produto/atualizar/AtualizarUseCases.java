@@ -11,6 +11,9 @@ public class AtualizarUseCases {
 
         ProdutoDaoImpl produtoDaoImpl = new ProdutoDaoImpl();
 
+        if (!(props.id instanceof Integer) || props.id == null || props.id == 0)
+            throw new Error("//:Informações inválidas//:401");
+
         Produto produto = new Produto();
         produto.setNome(props.nome);
         produto.setCod(props.cod);

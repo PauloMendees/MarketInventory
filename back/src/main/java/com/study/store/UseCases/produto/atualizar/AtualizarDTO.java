@@ -7,4 +7,5 @@ public class AtualizarDTO {
     public Integer quantidade;
     public Integer cod;
     public Integer loja;
+    public Integer id;
 }

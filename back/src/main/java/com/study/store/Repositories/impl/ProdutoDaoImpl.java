@@ -63,13 +63,14 @@ public class ProdutoDaoImpl implements ProdutoDao {
         try {
 
             this.jdbcTemplate.update(
-                    "INSERT INTO usuario (`nome`, `valor_compra`, `quantidade`, `cod`, `loja`) " +
-                            "VALUES (?, ?, ?, ?, ?)",
+                    "UPDATE usuario SET `nome` = ? , `valor_compra` = ?, `quantidade` = ?, `cod` = ?, `loja` = ? " +
+                            "WHERE id = ?",
                     produto.getNome(),
                     produto.getValorCompra(),
                     produto.getQuantidade(),
                     produto.getCod(),
-                    produto.getLoja().getId());
+                    produto.getLoja().getId(),
+                    produto.getId());
         } catch (EmptyResultDataAccessException e) {
             throw new Error("//:Problem in update data produto//:400");
         }

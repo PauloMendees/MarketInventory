@@ -11,6 +11,9 @@ public class AtualizarUseCases {
 
         LojaDaoImpl lojaDaoImpl = new LojaDaoImpl();
 
+        if (!(props.id instanceof Integer) || props.id == null || props.id == 0)
+            throw new Error("//:Informações inválidas//:401");
+
         Loja loja = new Loja();
 
         loja.setNome(props.nome);

@@ -9,6 +9,9 @@ public class AtualizarUseCases {
 
         EnderecoDaoImpl enderecoDaoImpl = new EnderecoDaoImpl();
 
+        if (!(props.id instanceof Integer) || props.id == null || props.id == 0)
+        throw new Error("//:Informações inválidas//:401");
+
         Endereco endereco = new Endereco();
         endereco.rua = props.rua;
         endereco.bairro = props.bairro;

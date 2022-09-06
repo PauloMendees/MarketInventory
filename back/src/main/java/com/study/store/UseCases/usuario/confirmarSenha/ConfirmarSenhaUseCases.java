@@ -11,6 +11,11 @@ public class ConfirmarSenhaUseCases {
 
     public List<Usuario> execute(ConfirmarSenhaDTO props) {
 
+        if (!(props.apelido instanceof String) || props.apelido == null || props.apelido == "")
+            throw new Error("//:Informações inválidas//:401");
+        if (!(props.senha instanceof String) || props.senha == null || props.senha == "")
+            throw new Error("//:Informações inválidas//:401");
+            
         UsuarioDaoImpl usuarioDaoImpl = new UsuarioDaoImpl();
         List<Usuario> usuario;
         FilterUsuario filterUsuario = new FilterUsuario();
@@ -20,7 +25,11 @@ public class ConfirmarSenhaUseCases {
         orderRows.setColuna("apelidos");
         orderRows.setOrdem("ASC");
 
-        usuario = usuarioDaoImpl.search(filterUsuario, orderRows);
+        usuario = usuarioDaoImpl.findByUserCredentials(filterUsuario, orderRows);
+
+        if(usuario.isEmpty())
+            throw new Error("//:Usuário não encontrado//:401");
+
 
         return usuario;
     }

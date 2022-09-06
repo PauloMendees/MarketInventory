@@ -66,14 +66,15 @@ public class EnderecoDaoImpl implements EnderecoDao {
         try {
 
             this.jdbcTemplate.update(
-                    "INSERT INTO endereco (`rua`, `bairro`, `cidade`, `quadra`, `lote`, `cep`) " +
-                            "VALUES (?, ?, ?, ?, ?, ?)",
+                    "UPDATE endereco SET `rua` = ?, `bairro` = ?, `cidade` = ?, `quadra` = ?, `lote` = ?, `cep` = ? " +
+                            "WHERE id = ?",
                     endereco.getRua(),
                     endereco.getBairro(),
                     endereco.getCidade(),
                     endereco.getQuadra(),
                     endereco.getLote(),
-                    endereco.getCep());
+                    endereco.getCep(),
+                    endereco.getId());
         } catch (EmptyResultDataAccessException e) {
             throw new Error("//:Problem in update data Endereco//:400");
         }
