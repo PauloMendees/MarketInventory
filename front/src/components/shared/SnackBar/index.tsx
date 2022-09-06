@@ -30,7 +30,7 @@ export const SnackbarMessage = ({deleteSnackbar, snackbar}: Props) => {
                 className={'flex cursor-pointer p-1 rounded-xl w-5 h-5 transform hover:scale-125 active:scale-90'}
                 onClick={handleDeleteSnackbar}
             >
-                <CloseIcon />
+                <CloseIcon width='10px' />
             </span>
         </div>
     );
