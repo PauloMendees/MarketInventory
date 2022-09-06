@@ -111,7 +111,7 @@ public class LojaDaoImpl implements LojaDao {
                     "SELECT * FROM loja",
                     new LojaRowMapper());
         } catch (EmptyResultDataAccessException e) {
-            throw new Error("//:Not find Loja//:400");
+            throw new Error("//:Not find Lojas//:400");
         }
     }
 }

@@ -35,7 +35,7 @@ public class RegistrarUseCases {
 
         produto.setLoja(loja);
 
-        produtoDaoImpl.update(produto);
+        produtoDaoImpl.insert(produto);
 
         return "Produto cadastrado com sucesso!";
     }

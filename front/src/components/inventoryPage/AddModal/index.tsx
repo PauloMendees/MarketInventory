@@ -14,7 +14,7 @@ export function AddModal({ handleOpen, open }: Props) {
   const {isLoading, register} = useAddModal()
 
   return (
-    <BaseModal title="Adicionar loja" handleClose={handleOpen} open={open}>
+    <BaseModal title="Adicionar produto" handleClose={handleOpen} open={open}>
       <form
         onSubmit={register}
         className="mt-7 flex justify-between items-center gap-2 sm:w-[400px] md:w-[500px] lg:w-[500px] xl:w-[700px] 2xl:w-[700px] flex-wrap"

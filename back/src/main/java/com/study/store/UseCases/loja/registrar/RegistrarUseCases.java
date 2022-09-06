@@ -46,12 +46,10 @@ public class RegistrarUseCases {
         endereco.setCep(props.cep);
 
         endereco.setId(enderecoDaoImpl.insert(endereco));
-
-        System.out.print(endereco.getId());
-
+        
         loja.setEndereco(endereco);
 
-        lojaDaoImpl.update(loja);
+        lojaDaoImpl.insert(loja);
 
         return "Loja cadastrada com sucesso!";
     }

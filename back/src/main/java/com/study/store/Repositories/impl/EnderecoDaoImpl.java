@@ -36,10 +36,9 @@ public class EnderecoDaoImpl implements EnderecoDao {
     public Integer insert(Endereco endereco) {
 
         try {
-
             String insertSql = "INSERT INTO endereco (`rua`, `bairro`, `cidade`, `estado`, `quadra`, `lote`, `cep`) " +
-                    "VALUES (?, ?, ?, ?, ?, ?, ?)";
-
+            "VALUES (?, ?, ?, ?, ?, ?, ?)";
+            
             GeneratedKeyHolder keyHolder = new GeneratedKeyHolder();
             this.jdbcTemplate.update(connection -> {
                 PreparedStatement ps = connection.prepareStatement(insertSql, new String[] { "ID" });
@@ -52,7 +51,7 @@ public class EnderecoDaoImpl implements EnderecoDao {
                 ps.setString(7, endereco.getCep());
                 return ps;
             }, keyHolder);
-
+            
             return keyHolder.getKey().intValue();
 
         } catch (EmptyResultDataAccessException e) {

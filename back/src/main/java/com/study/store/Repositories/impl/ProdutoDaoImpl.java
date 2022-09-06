@@ -37,7 +37,7 @@ public class ProdutoDaoImpl implements ProdutoDao {
 
         try {
 
-            String insertSql = "INSERT INTO produto (`nome`, `valor_compra`, `quantidade`, `cod`, `loja`) " +
+            String insertSql = "INSERT INTO produto (`nome`, `valor_compra`, `quantidade`, `cod`, `loja_id`) " +
                     "VALUES (?, ?, ?, ?, ?)";
 
             GeneratedKeyHolder keyHolder = new GeneratedKeyHolder();
@@ -119,7 +119,7 @@ public class ProdutoDaoImpl implements ProdutoDao {
                     "SELECT * FROM produto",
                     new ProdutoRowMapper());
         } catch (EmptyResultDataAccessException e) {
-            throw new Error("//:Not find Loja//:400");
+            throw new Error("//:Not find produto//:400 " + e);
         }
     }
 }

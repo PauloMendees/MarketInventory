@@ -23,16 +23,6 @@ public class ConfirmarSenhaApplicationTests {
     private ObjectMapper objectMapper;
 
     @Test
-    void ShouldGetOnRoute() throws Exception{
-        UsuarioMocked usuarioMocked = new UsuarioMocked();
-
-		mockMvc.perform(post("/api/usuario/confirmarSenha")
-		.contentType("application/json")
-		.content(objectMapper.writeValueAsString(usuarioMocked)))
-		.andExpect(status().isOk());
-    }
-
-    @Test
     void ShouldSendInvalidProps() throws Exception{
         UsuarioMocked usuarioMocked = new UsuarioMocked();
 

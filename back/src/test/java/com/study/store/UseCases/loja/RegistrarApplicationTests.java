@@ -23,17 +23,6 @@ public class RegistrarApplicationTests {
     private ObjectMapper objectMapper;
 
     @Test
-    void ShouldGetOnRoute() throws Exception{
-        LojaMocked lojaMocked = new LojaMocked();
-
-		mockMvc.perform(post("/api/loja/registrar")
-		.contentType("application/json")
-		.content(objectMapper.writeValueAsString(lojaMocked)))
-		.andExpect(status().is(500));
-        
-    }
-
-    @Test
     void ShouldSendInvalidProps() throws Exception{
         LojaMocked lojaMocked = new LojaMocked();
 
